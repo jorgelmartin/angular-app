@@ -1,1 +1,15 @@
-<p>users works!</p>
+<h2>Lista de usuarios</h2>
+<div class="userList">
+  <div class="userHeader">
+    <div>Nombre</div>
+    <div>Apellido</div>
+    <div>Correo</div>
+  </div>
+  <div *ngFor="let user of users" class="userItem">
+    <div class="userInfo">
+        <p class="userData">{{ user.first_name }}</p>
+        <p class="userData">{{ user.last_name }}</p>
+        <p class="userData">{{ user.email }}</p>
+    </div>
+  </div>
+</div>
