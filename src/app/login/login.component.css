@@ -1,0 +1,47 @@
+.loginContainer {
+    background-color: #5be34f27;
+    border-radius: 0.5em;
+    box-shadow: 0 0.25em 0.5em rgba(0, 0, 0, 0.1);
+    padding: 2em;
+    /* width: 20em; */
+}
+
+h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+.inputField {
+    width: 100%;
+    padding: 1em;
+    margin-bottom: 1.25em;
+    border: 0.0625em solid #ccc;
+    border-radius: 0.25em;
+    box-sizing: border-box;
+}
+
+.error {
+    color: red;
+    margin-top: 1em;
+}
+
+button {
+    width: 100%;
+    padding: 1em;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
