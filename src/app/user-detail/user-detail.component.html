@@ -1,1 +1,9 @@
-<p>user-detail works!</p>
+<div *ngIf="user" class="userCard">
+
+    <img [src]="user.avatar" alt="Avatar" class="userAvatar">
+    <h2 class="userName">{{ user.first_name }} {{ user.last_name }}</h2>
+    <p class="userInfo"><strong>Email: </strong>{{ user.email }}</p>
+    <p class="userInfo"><strong>ID: </strong>{{ user.id }}</p>
+
+    <button (click)="goToUsersPage()" class="buttonPage">Volver</button>
+</div>
