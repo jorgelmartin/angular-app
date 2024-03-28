@@ -4,6 +4,10 @@ import { FormControl, FormsModule, FormGroup, Validators, ReactiveFormsModule, F
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 
+export interface LoginResponse {
+  token: string;
+}
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -16,16 +20,6 @@ export class LoginComponent {
   loginForm: FormGroup;
   loginError: string = '';
 
-  // constructor(
-  //   private http: HttpClient,
-  //   private router: Router
-  //   ) {
-  //   this.loginForm = new FormGroup({
-  //     email: new FormControl('', [Validators.required, Validators.email]),
-  //     password: new FormControl('', [Validators.required])
-  //   });
-  // }
-
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
@@ -36,6 +30,7 @@ export class LoginComponent {
       password: ['', [Validators.required]]
     });
   }
+  
   onSubmit() {
     if (this.loginForm.invalid) {
       return;
@@ -45,8 +40,8 @@ export class LoginComponent {
 
     this.http.post<LoginResponse>('https://reqres.in/api/login', { email, password }).subscribe({
       next: (response) => {
-        console.log(response);
-        // Lógica para manejar la respuesta del inicio de sesión exitoso
+
+        localStorage.setItem('token', response.token);
         this.router.navigate(['/users']);
       },
       error: (error) => {
@@ -57,25 +52,13 @@ export class LoginComponent {
   }
 }
 
-export interface LoginResponse {
-  token: string;
-}
 
-// @NgModule({
-//   declarations: [LoginComponent],
-//   imports: [CommonModule, FormsModule], // Agrega FormsModule aquí
-// })
-// export class LoginModule {}
-
-// constructor(private authService: AuthService, private router: Router) {}
-
-//   login() {
-//     this.authService.login(this.email, this.password).subscribe((result) => {
-//       if (result) {
-//         this.router.navigate(['/users']);
-//       } else {
-//         // Manejar error de inicio de sesión
-//       }
-//     });
-//   }
-// }
+  // constructor(
+  //   private http: HttpClient,
+  //   private router: Router
+  //   ) {
+  //   this.loginForm = new FormGroup({
+  //     email: new FormControl('', [Validators.required, Validators.email]),
+  //     password: new FormControl('', [Validators.required])
+  //   });
+  // }

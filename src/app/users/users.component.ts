@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 interface User {
   id: number;
@@ -23,7 +24,7 @@ export class UsersComponent implements OnInit {
   hasNextPage: boolean = true;
   hasPreviousPage: boolean = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.loadUsers(this.currentPage);
@@ -50,4 +51,8 @@ export class UsersComponent implements OnInit {
     this.currentPage--;
     this.loadUsers(this.currentPage);
   }
+  showUserDetail(userId: number): void {
+    this.router.navigate(['/user-detail', userId]); // Navega a la ruta del detalle del usuario
+  }
 }
+

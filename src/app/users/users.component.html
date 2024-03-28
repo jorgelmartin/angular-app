@@ -1,25 +1,25 @@
-
-
-<div class="requestUser">Usuarios</div>
+<div class="titleComponent">Lista de usuarios</div>
 <div class="tableContainerCheck">
-    
+
     <div class="tableHeader">
         <div class="tableDataName">Nombre</div>
         <!-- <div class="tableDataCheck">Apellido</div> -->
         <div class="tableDataCheck email">Email</div>
-        <div class="tableDataDetail">Detalle</div> 
+        <div class="tableDataDetail">Detalle</div>
     </div>
 
-        <div *ngFor="let user of users" class="tableDataRow">
-            <div class="tableDataName">{{ user.first_name }} {{ user.last_name }}</div>
-            <!-- <div class="tableDataCheck">{{ user.last_name }}</div> -->
-            <div class="tableDataCheck" title="{{ user.email }}">{{ user.email }}</div>
-            <div class="tableDataDetail"><button class="buttonDetail">Ver</button></div> 
+    <div *ngFor="let user of users" class="tableDataRow">
+        <div class="tableDataName">{{ user.first_name }} {{ user.last_name }}</div>
+        <!-- <div class="tableDataCheck">{{ user.last_name }}</div> -->
+        <div class="tableDataCheck" title="{{ user.email }}">{{ user.email }}</div>
+        <div class="tableDataDetail">
+            <button class="buttonDetail" (click)="showUserDetail(user.id)">Ver</button>
         </div>
+    </div>
 
- 
+
     <div class="buttonsContainer">
-    <button *ngIf="hasPreviousPage" (click)="loadPreviousPage()" class="buttonPage">Volver</button>
-    <button *ngIf="hasNextPage" (click)="loadNextPage()" class="buttonPage">Siguiente página</button>
-</div>
+        <button *ngIf="hasPreviousPage" (click)="loadPreviousPage()" class="buttonPage">Volver</button>
+        <button *ngIf="hasNextPage" (click)="loadNextPage()" class="buttonPage">Siguiente página</button>
+    </div>
 </div>

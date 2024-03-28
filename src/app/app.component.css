@@ -1,0 +1,32 @@
+.appContainer {
+    position: relative;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #5964435a;
+    padding: 0.5em 1em;
+
+}
+
+.buttonLogout {
+    padding: 0.6em 1.9em;
+    background-color: #4477427e;
+    user-select: none;
+    border-radius: 0.8em;
+    cursor: pointer;
+    box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+    color: rgb(255, 255, 255);
+    text-shadow: 0.05em 0.05em 0.06em rgba(0, 0, 0, 0.5);
+    border: 0.1em solid #417854;
+    font-size: 1em;
+}
+
+.buttonLogout:hover {
+    background-color: #61187556;
+    box-shadow: none;
+}

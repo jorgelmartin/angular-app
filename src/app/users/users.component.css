@@ -1,12 +1,4 @@
-.requestUser {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3em;
-    font-weight: bold;
-    color: rgb(75, 65, 65);
-}
+
 
 .tableContainerCheck {
     border: 0.1em solid #aca7a7;
@@ -73,6 +65,7 @@
     border: none;
     border-radius: 0.2em;
     cursor: pointer;
+    user-select: none;
 }
 .buttonsContainer{
     height: 3em;
@@ -80,11 +73,11 @@
     justify-content: space-around;
     align-items: center;
 }
-.buttonPage{
+/* .buttonPage{
     padding: 0.3em 0.5em; 
     background-color: #83b5267e;
-    /* color: rgb(198, 37, 37); */
+
     border: none;
     border-radius: 0.2em;
     cursor: pointer;
-}
+} */
