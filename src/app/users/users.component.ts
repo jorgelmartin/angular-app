@@ -30,6 +30,7 @@ export class UsersComponent implements OnInit {
     this.loadUsers(this.currentPage);
   }
 
+  // APICALL TO LIST OF USERS
   loadUsers(pageNumber: number): void {
     this.http.get<{ data: User[]; page: number; total_pages: number }>(`https://reqres.in/api/users?page=${pageNumber}`).pipe(
       map(response => {
@@ -42,17 +43,21 @@ export class UsersComponent implements OnInit {
     });
   }
 
+  // LOAD NEXT PAGE
   loadNextPage(): void {
     this.currentPage++;
     this.loadUsers(this.currentPage);
   }
 
+  // LOAD PREVIOUS PAGE
   loadPreviousPage(): void {
     this.currentPage--;
     this.loadUsers(this.currentPage);
   }
+
+  // SEND TO USER DETAILS
   showUserDetail(userId: number): void {
-    this.router.navigate(['/user-detail', userId]); // Navega a la ruta del detalle del usuario
+    this.router.navigate(['/user-detail', userId]);
   }
 }
 

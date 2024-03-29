@@ -28,6 +28,7 @@ export class UserDetailComponent implements OnInit {
     private router: Router
   ) { }
 
+  // SUBSCRIBE TO CHANGES IN ROUTE PARAMETERS
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const userId = params['id'];
@@ -35,12 +36,15 @@ export class UserDetailComponent implements OnInit {
     });
   }
 
+  // LOAD USER DETAIL FROM API
   loadUserDetail(userId: number): void {
-    this.http.get<{ data: UserData }>(`https://reqres.in/api/users/${userId}`).subscribe(response => {
+    this.http.get<{ data: UserData }>(`https://reqres.in/api/users/${userId}`)
+    .subscribe(response => {
       this.user = response.data;
     });
   }
 
+  // GO BACK TO USERS PAGE
   goToUsersPage(): void {
     this.router.navigate(['/users']);
   }

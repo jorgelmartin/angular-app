@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.buttonPage{
+    padding: 0.3em 1em; 
+    background-color: #83b5267e;
+    border: none;
+    user-select: none;
+    border-radius: 0.3em;
+    cursor: pointer;
+    box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+    border: 0.1em solid #417854;
+}
+
+.buttonPage:hover{
+    background-color: #83b526ca;
+    box-shadow: none;
+}
+
+.titleComponent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: rgb(75, 65, 65);
+    text-shadow: 0.02em 0.03em 0.06em rgba(0, 0, 0, 0.5);
+}

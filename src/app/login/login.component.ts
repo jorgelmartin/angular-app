@@ -11,7 +11,12 @@ export interface LoginResponse {
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, ReactiveFormsModule , FormsModule],
+  imports: [
+    CommonModule, 
+    HttpClientModule, 
+    ReactiveFormsModule , 
+    FormsModule
+  ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -25,12 +30,15 @@ export class LoginComponent {
     private http: HttpClient,
     private router: Router
   ) {
+
+    // INITIALIZE LOGIN FORM 
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
   }
   
+  // METHOD TO SEND LOGIN FORM
   onSubmit() {
     if (this.loginForm.invalid) {
       return;
@@ -38,9 +46,9 @@ export class LoginComponent {
 
     const { email, password } = this.loginForm.value;
 
+    // APICALL LOGIN
     this.http.post<LoginResponse>('https://reqres.in/api/login', { email, password }).subscribe({
       next: (response) => {
-
         localStorage.setItem('token', response.token);
         this.router.navigate(['/users']);
       },

@@ -1,23 +1,26 @@
-<div class="titleComponent">Lista de usuarios</div>
-<div class="tableContainerCheck">
 
+<!-- LIST OF USERS -->
+<div class="titleComponent">Lista de usuarios</div>
+<div class="tableContainer">
+
+    <!-- TABLE HEADER -->
     <div class="tableHeader">
         <div class="tableDataName">Nombre</div>
-        <!-- <div class="tableDataCheck">Apellido</div> -->
-        <div class="tableDataCheck email">Email</div>
+        <div class="tableDataEmail">Email</div>
         <div class="tableDataDetail">Detalle</div>
     </div>
 
+    <!-- USERS DATA -->
     <div *ngFor="let user of users" class="tableDataRow">
         <div class="tableDataName">{{ user.first_name }} {{ user.last_name }}</div>
-        <!-- <div class="tableDataCheck">{{ user.last_name }}</div> -->
-        <div class="tableDataCheck" title="{{ user.email }}">{{ user.email }}</div>
+        <div class="tableDataEmail" title="{{ user.email }}">{{ user.email }}</div>
         <div class="tableDataDetail">
             <button class="buttonDetail" (click)="showUserDetail(user.id)">Ver</button>
         </div>
     </div>
 
 
+    <!-- BUTTOS PAGINATION -->
     <div class="buttonsContainer">
         <button *ngIf="hasPreviousPage" (click)="loadPreviousPage()" class="buttonPage">Volver</button>
         <button *ngIf="hasNextPage" (click)="loadNextPage()" class="buttonPage">Siguiente página</button>

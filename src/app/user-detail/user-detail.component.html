@@ -1,9 +1,27 @@
+<!-- USER DETAIL -->
+<div class="titleComponent">Detalle de usuario</div>
 <div *ngIf="user" class="userCard">
 
-    <img [src]="user.avatar" alt="Avatar" class="userAvatar">
-    <h2 class="userName">{{ user.first_name }} {{ user.last_name }}</h2>
-    <p class="userInfo"><strong>Email: </strong>{{ user.email }}</p>
-    <p class="userInfo"><strong>ID: </strong>{{ user.id }}</p>
+    <!-- USER AVATAR -->
+    <img [src]="user.avatar" alt="Avatar">
 
+    <!-- USER DATA -->
+    <h2 class="userName">
+        {{ user.first_name }} {{ user.last_name }}
+    </h2>
+    <div class="dataDetails">
+        <div class="userInfo">
+            Email:
+        </div>
+        {{ user.email }}
+    </div>
+    <div class="dataDetails">
+        <div class="userInfo">
+            ID:
+        </div>
+        {{ user.id }}
+    </div>
+
+    <!-- GO BACK TO USER LIST -->
     <button (click)="goToUsersPage()" class="buttonPage">Volver</button>
 </div>
