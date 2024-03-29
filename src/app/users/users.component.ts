@@ -11,6 +11,7 @@ interface User {
   last_name: string;
   avatar: string;
 }
+
 @Component({
   selector: 'app-users',
   standalone: true,

@@ -1,27 +1,25 @@
-# AngularApp
+## AngularApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.2.
+### Login
 
-## Development server
+!['login'](./src/assets/login.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Credenciales: email: eve.holt@reqres.in, password: cityslicka.
 
-## Code scaffolding
+### Users
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+!['userList'](./src/assets/userList.png)
 
-## Build
+Tras iniciar sesión, se mostrará un listado de usuarios con hasta seis usuarios por pantalla, con la opción de navegar entre páginas.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### User detail
 
-## Running unit tests
+!['detailView'](./src/assets/detailView.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+En la vista de detalle, se mostrará toda la información del usuario, incluyendo su foto.
 
-## Running end-to-end tests
+### API
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+https://reqres.in/
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
