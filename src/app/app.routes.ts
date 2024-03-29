@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { UserDetailComponent } from './user-detail/user-detail.component';
-import { LoginComponent } from './login/login.component';
-import { UsersComponent } from './users/users.component';
+import { UserDetailComponent } from './containers/user-detail/user-detail.component';
+import { LoginComponent } from './containers/login/login.component';
+import { UsersComponent } from './containers/users/users.component';
 
 // VERIFY TOKEN IN LOCALSTORAGE
 const canActivateWithToken = () => {
