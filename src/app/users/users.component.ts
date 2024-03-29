@@ -1,64 +1,57 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-
-interface User {
-  id: number;
-  email: string;
-  first_name: string;
-  last_name: string;
-  avatar: string;
-}
+import { UserData } from '../types';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-users',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './users.component.html',
-  styleUrl: './users.component.css'
+  styleUrl: './users.component.css',
+  providers: [UserService],
 })
+
 export class UsersComponent implements OnInit {
-  users: User[] = [];
+  users: UserData[] = [];
   currentPage: number = 1;
   hasNextPage: boolean = true;
   hasPreviousPage: boolean = false;
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    ) { }
 
+  // LOAD USERS  ON INITIALIZATION
   ngOnInit(): void {
     this.loadUsers(this.currentPage);
-  }
+  };
 
-  // APICALL TO LIST OF USERS
+  // LOAD LIST OF USERS WITH PAGINATION
   loadUsers(pageNumber: number): void {
-    this.http.get<{ data: User[]; page: number; total_pages: number }>(`https://reqres.in/api/users?page=${pageNumber}`).pipe(
-      map(response => {
-        this.hasNextPage = response.page < response.total_pages;
-        this.hasPreviousPage = response.page > 1;
-        return response.data;
-      })
-    ).subscribe(users => {
-      this.users = users;
+    this.userService.getUsers(pageNumber).subscribe(response => {
+      this.users = response.data;
+      this.hasNextPage = this.currentPage < response.total_pages;
+      this.hasPreviousPage = this.currentPage > 1;
     });
-  }
+  };
 
   // LOAD NEXT PAGE
   loadNextPage(): void {
     this.currentPage++;
     this.loadUsers(this.currentPage);
-  }
+  };
 
   // LOAD PREVIOUS PAGE
   loadPreviousPage(): void {
     this.currentPage--;
     this.loadUsers(this.currentPage);
-  }
+  };
 
   // SEND TO USER DETAILS
   showUserDetail(userId: number): void {
     this.router.navigate(['/user-detail', userId]);
-  }
-}
-
+  };
+};

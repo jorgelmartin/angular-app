@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -16,20 +17,24 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  providers: [AuthService],
 })
 export class AppComponent {
-  
-  constructor(private router: Router) {}
+
+  constructor(
+    private authService: AuthService, 
+    private router: Router
+    ) {}
 
   // VERIFY TOKEN
   isLoggedIn() {
-    return !!localStorage.getItem('token');
-  }
+    return this.authService.isLoggedIn();
+  };
 
   // LOGOUT
   logout() {
-    localStorage.removeItem('token');
+    this.authService.logout();
     this.router.navigate(['/login']);
-  }
-}
+  };
+};

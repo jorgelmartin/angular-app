@@ -1,9 +1,10 @@
 
 <!-- MINI NAVBAR WITH LOGOUT BUTTON -->
-<div *ngIf="isLoggedIn()" class="appContainer">
+@if (isLoggedIn()){
+<div class="appContainer">
   <nav>
-    <button  (click)="logout()" class="buttonLogout">Salir</button>
+    <button (click)="logout()" class="buttonLogout">Salir</button>
   </nav>
 </div>
-
+}
 <router-outlet />

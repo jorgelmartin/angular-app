@@ -1,7 +1,8 @@
 <!-- USER DETAIL -->
 <div class="titleComponent">Detalle de usuario</div>
-<div *ngIf="user" class="userCard">
+<div class="userCard">
 
+@if (user) {
     <!-- USER AVATAR -->
     <img [src]="user.avatar" alt="Avatar">
 
@@ -21,6 +22,7 @@
         </div>
         {{ user.id }}
     </div>
+}
 
     <!-- GO BACK TO USER LIST -->
     <button (click)="goToUsersPage()" class="buttonPage">Volver</button>

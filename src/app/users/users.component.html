@@ -1,4 +1,3 @@
-
 <!-- LIST OF USERS -->
 <div class="titleComponent">Lista de usuarios</div>
 <div class="tableContainer">
@@ -11,18 +10,23 @@
     </div>
 
     <!-- USERS DATA -->
-    <div *ngFor="let user of users" class="tableDataRow">
+    @for (user of users; track user.id) {
+    <div class="tableDataRow">
         <div class="tableDataName">{{ user.first_name }} {{ user.last_name }}</div>
         <div class="tableDataEmail" title="{{ user.email }}">{{ user.email }}</div>
         <div class="tableDataDetail">
             <button class="buttonDetail" (click)="showUserDetail(user.id)">Ver</button>
         </div>
     </div>
-
+    }
 
     <!-- BUTTOS PAGINATION -->
     <div class="buttonsContainer">
-        <button *ngIf="hasPreviousPage" (click)="loadPreviousPage()" class="buttonPage">Volver</button>
-        <button *ngIf="hasNextPage" (click)="loadNextPage()" class="buttonPage">Siguiente página</button>
+        @if (hasPreviousPage) {
+        <button (click)="loadPreviousPage()" class="buttonPage">Volver</button>
+        }
+        @if (hasNextPage) {
+        <button (click)="loadNextPage()" class="buttonPage">Siguiente página</button>
+        }
     </div>
 </div>

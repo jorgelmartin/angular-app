@@ -1,24 +1,22 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormsModule, FormGroup, Validators, ReactiveFormsModule, FormBuilder  } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule, FormGroup, Validators, ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
-
-export interface LoginResponse {
-  token: string;
-}
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
-    CommonModule, 
-    HttpClientModule, 
-    ReactiveFormsModule , 
+    CommonModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
+  providers: [AuthService],
 })
 
 export class LoginComponent {
@@ -27,7 +25,7 @@ export class LoginComponent {
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient,
+    private authService: AuthService,
     private router: Router
   ) {
 
@@ -36,37 +34,23 @@ export class LoginComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
-  }
-  
+  };
+
   // METHOD TO SEND LOGIN FORM
-  onSubmit() {
+    onSubmit() {
     if (this.loginForm.invalid) {
       return;
-    }
-
+    };
     const { email, password } = this.loginForm.value;
 
-    // APICALL LOGIN
-    this.http.post<LoginResponse>('https://reqres.in/api/login', { email, password }).subscribe({
-      next: (response) => {
-        localStorage.setItem('token', response.token);
+    //CALL API FROM AUTHSERVICE
+    this.authService.login(email, password).subscribe({
+      next: () => {
         this.router.navigate(['/users']);
       },
       error: (error) => {
-        console.error('Error al iniciar sesión:', error);
         this.loginError = error.error.error || 'Error al iniciar sesión';
       }
     });
-  }
-}
-
-
-  // constructor(
-  //   private http: HttpClient,
-  //   private router: Router
-  //   ) {
-  //   this.loginForm = new FormGroup({
-  //     email: new FormControl('', [Validators.required, Validators.email]),
-  //     password: new FormControl('', [Validators.required])
-  //   });
-  // }
+  };
+};

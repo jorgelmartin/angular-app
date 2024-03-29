@@ -18,18 +18,25 @@ h2 {
 }
 
 label {
-    display: block;
-    margin-bottom: 0.5em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     font-weight: bold;
+    width: 9em;
+    height: 1.5em;
+    border-radius: 0.4em;
+    border: 0.1em solid #5d6d3aac;
+    box-shadow: rgba(61, 103, 50, 0.604) 0em 0.9em 1.8em -0.9em inset;
 }
 
 .inputField {
+    box-shadow: rgba(75, 88, 39, 0.315) 0em 0.9em 1.8em -0.9em inset;
     margin-bottom: 3em;
     width: 100%;
     padding: 1em;
     margin-bottom: 1.25em;
-    border: 0.0625em solid #ccc;
-    border-radius: 0.25em;
+    border: 0.0625em solid #5d6d3aac;
+    border-radius: 0.4em;
     box-sizing: border-box;
 }
 

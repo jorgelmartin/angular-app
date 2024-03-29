@@ -26,10 +26,7 @@
 }
 
 .titleComponent {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     font-size: 2em;
     font-weight: bold;
     color: rgb(75, 65, 65);
