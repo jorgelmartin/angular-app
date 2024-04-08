@@ -1,6 +1,7 @@
 .tableContainer {
     border: 0.1em solid #aca7a7;
     border-radius: 0.2em;
+    max-width:21.9em;
 }
 
 .tableHeader {
@@ -18,35 +19,31 @@
 }
 
 .tableDataName {
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    padding: 0.5em 0;
     text-align: center;
     border-right: 0.06em solid #aca7a7;
     white-space: nowrap;
     background-color: rgba(250, 235, 215, 0.26);
-    min-width: 8em;
+    width: 7.5em;
 }
 
 .tableDataEmail {
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    padding: 0.5em 0;
     text-align: center;
     border-right: 0.06em solid #aca7a7;
     background-color: rgba(250, 235, 215, 0.26);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    min-width: 11em;
+    width: 11.3em;
 }
 
 .tableDataDetail {
-    padding-left: 0.1em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    padding: 0.5em 0 0.5em 0.1em;
     text-align: center;
     border-right: 0.06em solid #aca7a7;
     background-color: rgba(250, 235, 215, 0.26);
-    min-width: 3em;
+    width: 3.04em;
 }
 
 .buttonDetail {

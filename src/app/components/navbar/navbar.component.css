@@ -4,11 +4,11 @@
     left: 0;
     width: 100%;
     background-color: #5964435a;
-    padding: 0.5em 1em;
+    padding: 0.3em 1em;
 }
 
 .buttonLogout {
-    padding: 0.6em 1.9em;
+    padding: 0.5em 1.6em;
     background-color: #4477427e;
     user-select: none;
     border-radius: 0.8em;

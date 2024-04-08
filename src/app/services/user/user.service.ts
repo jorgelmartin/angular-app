@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UsersApiResponse, UserDetailResponse } from '../../types';
-
-export const URL = 'https://reqres.in/api/';
+import { URL } from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'

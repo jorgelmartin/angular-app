@@ -1,5 +1,5 @@
 .userCard {
-    width: 20em;
+    width: 19.1em;
     background-color: #5be34f27;
     border-radius: 1em;
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
@@ -41,13 +41,11 @@ img {
     display: flex;
     align-items: center;
     border: 0.1em solid rgba(103, 9, 147, 0.575);
-    margin-top: 1em;
     padding: 0.1em;
     border-radius: 0.5em;
     background-color: white;
     box-shadow: rgba(193, 26, 222, 0.315) 0em 0.9em 1.8em -0.9em inset;
-    margin-top: 0.5em;
-    margin-bottom: 1em;
+    margin: 1em 0;
     font-size: 1.03em;
 }
 
@@ -55,7 +53,6 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2em;
     font-size: 2em;
     text-align: center;
     font-size: 1em;

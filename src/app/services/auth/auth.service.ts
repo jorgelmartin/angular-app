@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginResponse } from '../../types';
 
+export const URL = 'https://reqres.in/api/';
+
 @Injectable({
   providedIn: 'root'
 })
