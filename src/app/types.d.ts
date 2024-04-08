@@ -15,7 +15,7 @@ export interface LoginData {
     password: string;
 };
 
-export interface UserApiResponse {
+export interface UsersApiResponse {
     page: number;
     per_page: number;
     total: number;

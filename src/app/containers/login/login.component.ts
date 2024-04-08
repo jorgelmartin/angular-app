@@ -4,6 +4,8 @@ import { FormsModule, FormGroup, Validators, ReactiveFormsModule, FormBuilder } 
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
+import { LoginResponse } from '../../types';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -36,15 +38,18 @@ export class LoginComponent {
     });
   };
 
-  // METHOD TO SEND LOGIN FORM
-    onSubmit() {
+  // SEND LOGIN FORM & SAVE TOKEN
+  onSubmit() {
     if (this.loginForm.invalid) {
       return;
     };
     const { email, password } = this.loginForm.value;
 
-    //CALL API FROM AUTHSERVICE
-    this.authService.login(email, password).subscribe({
+    this.authService.login(email, password).pipe(
+      tap((response: LoginResponse) => {
+        localStorage.setItem('token', response.token);
+      })
+    ).subscribe({
       next: () => {
         this.router.navigate(['/users']);
       },

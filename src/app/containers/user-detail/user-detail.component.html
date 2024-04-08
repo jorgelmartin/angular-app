@@ -2,7 +2,7 @@
 <div class="titleComponent">Detalle de usuario</div>
 <div class="userCard">
 
-@if (user) {
+    @if (user) {
     <!-- USER AVATAR -->
     <img [src]="user.avatar" alt="Avatar">
 
@@ -22,7 +22,9 @@
         </div>
         {{ user.id }}
     </div>
-}
+    } @else {
+    <div style="height: 3em;">Cargando...</div>
+    }
 
     <!-- GO BACK TO USER LIST -->
     <button (click)="goToUsersPage()" class="buttonPage">Volver</button>

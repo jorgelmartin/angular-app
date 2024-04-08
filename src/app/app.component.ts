@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthService } from './services/auth/auth.service';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -14,27 +14,13 @@ import { AuthService } from './services/auth/auth.service';
     RouterLinkActive, 
     RouterOutlet, 
     ReactiveFormsModule, 
-    HttpClientModule
+    HttpClientModule,
+    NavbarComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  providers: [AuthService],
+  providers: [],
 })
+
 export class AppComponent {
-
-  constructor(
-    private authService: AuthService, 
-    private router: Router
-    ) {}
-
-  // VERIFY TOKEN
-  isLoggedIn() {
-    return this.authService.isLoggedIn();
-  };
-
-  // LOGOUT
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['/login']);
-  };
 };

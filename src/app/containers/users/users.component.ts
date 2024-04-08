@@ -22,7 +22,7 @@ export class UsersComponent implements OnInit {
   constructor(
     private router: Router,
     private userService: UserService,
-    ) { }
+  ) { }
 
   // LOAD USERS  ON INITIALIZATION
   ngOnInit(): void {

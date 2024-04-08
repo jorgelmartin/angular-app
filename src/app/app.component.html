@@ -1,10 +1,2 @@
-
-<!-- MINI NAVBAR WITH LOGOUT BUTTON -->
-@if (isLoggedIn()){
-<div class="appContainer">
-  <nav>
-    <button (click)="logout()" class="buttonLogout">Salir</button>
-  </nav>
-</div>
-}
+<app-navbar/>
 <router-outlet />
